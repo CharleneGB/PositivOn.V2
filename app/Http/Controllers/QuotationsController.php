@@ -27,21 +27,18 @@ class QuotationsController extends Controller
      * Show the form for creating a new resource.
      */
 
+     public function create() {
+
+
+     }
 
 
     /**
      * Store a newly created resource in storage.
      */
-     public function store(Request $request)
+     public function store()
     {
-        $request->validate([
-            'content' => 'required|max :300',
-            'author'=> 'required'
-            /* (chercher comment l'utilisateur pourra indiquer le thème de la citation ce qui rajoutera le bon id dans la BDD ) */
-        ]);
-        Quotations::create($request->all());
-        return redirect()->route('quotations.index')
-         ->with('succès','Citation enregistrée avec succès');
+        return redirect('\citations')->with('Ok','Citation enregistrée avec succès');
     }
 
     /**
@@ -49,7 +46,8 @@ class QuotationsController extends Controller
      */
     public function show(Quotations $quotations)
     {
-        //
+        $quotation = Quotations::find();
+        return redirect('citation/{id}');
     }
 
     /**
