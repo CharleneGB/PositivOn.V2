@@ -19,7 +19,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('BDD', [QuotationsController::class, 'index']);
-Route::get('citation/{id}',[QuotationsController::class, 'show']);
-Route::get('thème/{id}',[QuotationsController::class, 'type_show ']);
-Route::post('création_citation',[QuotationsController::class, 'store']);
+Route::get('test', function(){return response()->json(['message' => 'Test route works !']);
+});
+Route::get('citations', [QuotationsController::class, 'index']);
+/* Route::get('citation/{id}',[QuotationsController::class, 'show']); */
+Route::get('citations/theme/{id}', [QuotationsController::class,'fetchQuotationsByType']);
+Route::post('citation/ajout',[QuotationsController::class, 'store']);

@@ -3,53 +3,52 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateQuoteRequest;
 use App\Models\Quotations;
 use Illuminate\Http\Request;
 
 class QuotationsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+   
     public function index()
     {
-       $quotation = Quotations::join('categories', 'categories.id', '=', 'quotations.category_id')
-                              ->get(['quotations.content', 'quotations.author', 'categories.type']);
+        $quotation = Quotations::join('categories', 'categories.id', '=', 'quotations.category_id')
+            ->get(['quotations.content', 'quotations.author', 'categories.type']);
 
         return response()->json($quotation);
-
-
     }
 
-
+    public function fetchQuotationsByType($id)
+    {    
+        $categoryId = Quotations::where('category_id', $id)->get();
+        return response()->json($categoryId); 
+       
+    }
 
     /**
      * Show the form for creating a new resource.
      */
 
-     public function create() {
-
-
-     }
+    public function create() {}
 
 
     /**
      * Store a newly created resource in storage.
      */
-     public function store()
+    public function store(CreateQuoteRequest $request)
     {
-        return redirect('\citations')->with('Ok','Citation enregistrée avec succès');
+        dd($request);
+        $quotation = new Quotations();
+        $quotation->content = 'Content example';
+        $quotation->author = 'Auteur exemple';
+        $quotation->category_id ='3';
+        $quotation->save();
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Quotations $quotations)
-    {
-        $quotation = Quotations::find();
-        return redirect('citation/{id}');
-    }
-
+ 
     /**
      * Show the form for editing the specified resource.
      */

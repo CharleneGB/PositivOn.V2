@@ -10,4 +10,6 @@ class Quotations extends Model
     protected $fillable = ['content', 'author', 'category_id'];
 
     public $timestamps = false;
+
+
 }
