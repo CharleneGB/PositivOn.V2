@@ -1,0 +1,14 @@
+body{
+    background-image: linear-gradient(to right top, #e0b7ce, #f3bbc4, #fec2b8, #ffcdad, #f6dba8, #ebe2a9, #dee8ae, #d0eeb7, #c7edbb, #bfecbf, #b7ebc3, #b0e9c7);
+    height: 100vh;
+    text-align: center;
+    justify-content: center
+  }
+
+  form{
+    position: absolute;
+    top: 20%;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+  }

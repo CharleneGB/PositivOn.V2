@@ -6,8 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="post">
-
+    <form action="index.html" method="post">
+        <label for="lquote">Ecrivez la citation</label><br>
+        <input type="text" name="quote" id="add_quote"><br><br>
+        <label for="lauthor">Indiquez l'auteur</label><br>
+        <input type="text" name="author" id="add_author"> <br><br>
         <select name="category" id="category-select">
             <option value="">Choisissez le thème de la citation</option>
             <option value="1">Motivation</option>
@@ -19,7 +22,8 @@
             <option value="7">Bonheur</option>
             <option value="8">Pensées Positives</option>
             <option value="9">Esprit Positif</option>
-        </select>
+        </select><br><br>
+        <input type="submit" value="Enregistrer la citation">
     </form>
 </body>
 </html
